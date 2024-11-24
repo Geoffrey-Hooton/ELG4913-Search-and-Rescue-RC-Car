@@ -34,20 +34,34 @@ def set_servo_speed(channel, speed):
         channel.duty_cycle = pwm_value
 
 # Fonction pour avancer
-def move_forward():
+def move_forwardmaxspeed():
     print("La voiture avance")
     set_servo_speed(front_left_servo, 100)
     set_servo_speed(front_right_servo, 100)
     set_servo_speed(rear_left_servo, 100)
     set_servo_speed(rear_right_servo, 100)
 
+def move_forwardnormalspeed():
+    print("La voiture avance")
+    set_servo_speed(front_left_servo, 50)
+    set_servo_speed(front_right_servo, 50)
+    set_servo_speed(rear_left_servo, 50)
+    set_servo_speed(rear_right_servo, 50)
+
 # Fonction pour reculer
-def move_backward():
+def move_backwardmaxspeed():
     print("La voiture recule")
     set_servo_speed(front_left_servo, -100)
     set_servo_speed(front_right_servo, -100)
     set_servo_speed(rear_left_servo, -100)
     set_servo_speed(rear_right_servo, -100)
+
+def move_backwardnormalspeed():
+    print("La voiture recule")
+    set_servo_speed(front_left_servo, -50)
+    set_servo_speed(front_right_servo, -50)
+    set_servo_speed(rear_left_servo, -50)
+    set_servo_speed(rear_right_servo, -50)
 
 # Fonction pour tourner à gauche (pivot)
 def turn_left():
@@ -106,11 +120,17 @@ def stop_lifter():
 
 # Séquence de test
 try:
-    move_forward()
+    move_forwardmaxspeed()
     time.sleep(2)  # Avancer pendant 2 secondes
-
-    move_backward()
+    
+    move_forwardnormalspeed()
+    time.sleep(2)
+    
+    move_backwardmaxspeed()
     time.sleep(2)  # Reculer pendant 2 secondes
+    
+    move_backwardnormalspeed()
+    time.sleep(2)
 
     turn_left()
     time.sleep(2)  # Tourner à gauche (pivot) pendant 2 secondes
