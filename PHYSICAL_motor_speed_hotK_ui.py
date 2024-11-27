@@ -1,6 +1,3 @@
-#######NEEDS DEBUGGING#######
-
-
 import sys
 import time
 import board
